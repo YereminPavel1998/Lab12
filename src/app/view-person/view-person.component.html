@@ -1,0 +1,27 @@
+<div class="container mt-3">
+    <form class="row" *ngIf="flag; else anotherblock" >
+        <div class="col-1" #personId>{{person.id}}</div>
+        <div class="col-2">{{person.name}}</div>
+        <div class="col-2">{{person.surname}}</div>
+         <div class="col-2">
+            <button class="btn btn-primary" #btnEdit (click)="onEdit()">Редактировать</button>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-danger" (click)="onDelete(personId.innerHTML)">Удалить</button>
+        </div> 
+    </form>
+    <ng-template  #anotherblock>
+        <form class="row">
+        <div class="col-1" #personId>{{person.id}}</div>
+        <input type="text" class="form-control col-2 "  value="{{person.name}}" #personName>
+        <input type="text" class="form-control col-2 ml-2" value="{{person.surname}}"  #personSurname >
+        <div class="col-2">
+            <button class="btn btn-primary" #btnEdit (click)="onEdit(person.id, personName.value, personSurname.value)" >Сохранить</button>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-danger" (click)="onDelete(person.id)">Удалить</button>
+        </div> 
+    </form>
+    </ng-template>
+</div>
+

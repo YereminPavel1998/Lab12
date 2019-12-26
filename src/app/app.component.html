@@ -1,0 +1,2 @@
+<app-view-person *ngFor="let person of persons" [person]='person' (changeP)='changePersons($event)' (deleteP)='deletePersons($event)'></app-view-person>
+<app-add-person (addP)='addPersons($event)'></app-add-person>
